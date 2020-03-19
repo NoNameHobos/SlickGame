@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
 
 import main.engine.State;
 import main.entities.Entity;
+import main.entities.Mob;
 import main.entities.military.Golem;
 
 public class GameState extends State {
 
-	private Golem golem = null;
+	private ArrayList<Mob> mobs = new ArrayList<Mob>();
 	
 	public GameState(String name) {
 		super(name);
@@ -20,13 +20,8 @@ public class GameState extends State {
 
 	//Main Step Event for Game State
 	public void tick() {
-		if(golem == null) {
-			try {
-				golem = new Golem(null, 300, 300);
-			} catch (SlickException e) {
-				System.err.println("Failed to spawn golem");
-				e.printStackTrace();
-			}
+		if(mobs.size() < 3) { 
+				mobs.add(new Golem(null, 300+mobs.size()*50, 300));
 		}
 		//Update Entities
 		ArrayList<Entity> entities = Entity.getEntities();

@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import main.engine.states.GameState;
 import main.graphics.Display;
 import main.input.Mouse;
+import main.util.ResourceLoader;
 
 public class Engine implements Runnable, Game {
 
@@ -25,21 +26,23 @@ public class Engine implements Runnable, Game {
 	
 	private Input input;
 	private Mouse mouse;
-		
+	
 	public Engine(int WIDTH, int HEIGHT, String TITLE) {
 		System.out.println("Initializing Engine..");
 		ENGINE = this;
 		this.WIDTH = WIDTH;
 		this.HEIGHT = HEIGHT;
 		this.TITLE = TITLE;
-		
 		display = new Display(this, WIDTH, HEIGHT);
 		displayThread = new Thread(display, "DisplayThread");
+		
 	}
 	
 	public void init(GameContainer gc) throws SlickException {
 		input = gc.getInput();
 		mouse = new Mouse(input);
+		System.out.println("Loading Resources..");
+		ResourceLoader.initResources();
 	}
 
 	public void update(GameContainer gc, int i) throws SlickException {
