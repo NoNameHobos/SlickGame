@@ -20,9 +20,6 @@ public class GameState extends State {
 
 	//Main Step Event for Game State
 	public void tick() {
-		if(mobs.size() < 3) { 
-				mobs.add(new Golem(null, 300+mobs.size()*50, 300));
-		}
 		//Update Entities
 		ArrayList<Entity> entities = Entity.getEntities();
 		for(int j = 0; j < entities.size(); j++) {

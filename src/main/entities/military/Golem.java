@@ -31,15 +31,15 @@ public class Golem extends Mob {
 		mag_def = 9;
 		health_max = health;
 		walk = new Animation(WALK_SS, 500);
-		walk.setLooping(true);
+		//walk.setLooping(true);
 		
 	}
 	//Render/Draw event for the Golem
 	public void render(Graphics g) {
 		//walk.getCurrentFrame().setRotation(direction);
 		if(speed != 0) {
-			walk.getCurrentFrame().setRotation(direction);
 			walk.draw(pos.getX(), pos.getY());
+			walk.getCurrentFrame().setRotation(direction);
 		}
 		sprite.setRotation(direction);
 		sprite.draw(pos.getX(), pos.getY());

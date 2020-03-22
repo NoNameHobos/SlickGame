@@ -45,6 +45,7 @@ public class ResourceLoader {
 		SpriteSheet ss;
 		try {
 			ss = new SpriteSheet(dir + ".png", tw, th);
+			System.out.println("Loaded " + dir + ".png as Sprite Sheet with Tile: " + tw + "x" + th);
 			return ss;
 		} catch(SlickException e) {
 			System.err.println("Failed to load Sprite Sheet at: " + dir);
